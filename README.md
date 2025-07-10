@@ -32,19 +32,17 @@ Projeto desenvolvido durante um evento da Rocketseat para demonstrar o uso de ag
 - npm ou yarn
 
 ### Instalação
+1. Instale as dependências:
+```bash
+npm install
+```
 
-1. Clone o repositório
-2. Instale as dependências:
-   ```bash
-   npm install
-   ```
+2. Execute o servidor de desenvolvimento:
+```bash
+npm run dev
+```
 
-3. Execute o servidor de desenvolvimento:
-   ```bash
-   npm run dev
-   ```
-
-4. Acesse a aplicação em `http://localhost:5173`
+3. Acesse a aplicação em `http://localhost:5173`
 
 ### Scripts Disponíveis
 
@@ -97,18 +95,12 @@ O projeto segue uma arquitetura modular com:
 - Node.js (versão com suporte a `--experimental-strip-types`)
 - Docker e Docker Compose
 
-### 1. Clone o repositório
-```bash
-git clone <url-do-repositorio>
-cd server
-```
-
-### 2. Configure o banco de dados
+### 1. Configure o banco de dados
 ```bash
 docker-compose up -d
 ```
 
-### 3. Configure as variáveis de ambiente
+### 2. Configure as variáveis de ambiente
 
 Crie um arquivo `.env` na raiz do projeto:
 
@@ -117,46 +109,28 @@ PORT=3333
 DATABASE_URL=postgresql://docker:docker@localhost:5432/agents
 ```
 
-### 4. Instale as dependências
+### 3. Instale as dependências
 ```bash
 npm install
 ```
 
-### 5. Execute as migrações do banco
+### 4. Execute as migrações do banco
 ```bash
-npx drizzle-kit migrate
+npm run db:migrate
 ```
 
-### 6. (Opcional) Popule o banco com dados de exemplo
+### 5. (Opcional) Popule o banco com dados de exemplo
 ```bash
 npm run db:seed
 ```
 
-### 7. Execute o projeto
-
-**Desenvolvimento:**
+### 6. Execute o projeto
 ```bash
 npm run dev
-```
-
-**Produção:**
-```bash
-npm start
 ```
 
 ## 📚 Scripts Disponíveis
 
 - `npm run dev` - Executa o servidor em modo de desenvolvimento com hot reload
-- `npm start` - Executa o servidor em modo de produção
+- `npm run db:migrate` - Cria as tabelas no banco de dados
 - `npm run db:seed` - Popula o banco de dados com dados de exemplo
-
-## 🌐 Endpoints
-
-A API estará disponível em `http://localhost:3333`
-
-- `GET /health` - Health check da aplicação
-- `GET /rooms` - Lista as salas disponíveis
-
----
-
-Desenvolvido durante o NLW da Rocketseat
